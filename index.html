@@ -27,7 +27,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:74px}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.85;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:radial-gradient(rgba(42,33,23,.05) 1px,transparent 1.3px) 0 0/24px 24px,radial-gradient(rgba(42,33,23,.03) 1px,transparent 1.3px) 12px 12px/24px 24px,var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.85;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -325,9 +325,9 @@ h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:2px
 .path i{font-style:normal;color:#C3AF8F}
 
 /* analysis band */
-.analysis{margin-top:32px;padding:20px 22px;border-radius:14px;background:linear-gradient(180deg,#F1F5EC,#E9F0E4);border:1px solid #D3E0CC}
-.analysis span{font-size:10.5px;letter-spacing:.18em;color:#4C7A61}
-.analysis p{margin:6px 0 0;font-size:14px;line-height:1.9;color:#2E4034}
+.analysis{margin-top:32px;padding:20px 22px;border-radius:14px;background:linear-gradient(180deg,#F8F0DC,#F3E7CB);border:1px solid #E6D5AE}
+.analysis span{font-size:10.5px;letter-spacing:.18em;color:#9C6B2F}
+.analysis p{margin:6px 0 0;font-size:14px;line-height:1.9;color:#4C3A24}
 
 /* epilogue */
 .epilogue{background:var(--ink);color:#F7EFDF;padding:78px 0 70px;margin-top:70px}
@@ -551,33 +551,33 @@ button.waffle-block[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0
 
 /* Modern editorial refinement */
 :root{
-  --paper:#F6F5EF;
-  --paper-2:#ECEFE7;
-  --white:#FFFEFB;
-  --ink:#183A30;
-  --ink-2:#3D584C;
-  --muted:#697970;
-  --green:#214D3E;
+  --paper:#F7F1E4;
+  --paper-2:#EFE4CF;
+  --white:#FFFDF8;
+  --ink:#2A2117;
+  --ink-2:#55483A;
+  --muted:#877863;
+  --green:#1F4D3E;
   --green-2:#547C64;
   --green-pale:#E3ECE2;
-  --orange:#D85C46;
-  --orange-pale:#F7E8DF;
-  --gold:#E8B956;
-  --line:#DDE4DA;
+  --orange:#D8582A;
+  --orange-pale:#F8E3D4;
+  --gold:#E0A83E;
+  --line:#E7DABF;
   --danger:#9E3B2E;
-  --shadow:0 18px 48px -34px rgba(16,52,39,.3);
+  --shadow:0 18px 48px -34px rgba(60,38,16,.38);
 }
 html{scroll-behavior:auto;scroll-padding-top:72px}
 .wrap{width:min(1240px,100%);padding-inline:32px}
-.site-head{padding-inline:max(28px,calc((100vw - 1240px)/2));background:rgba(246,245,239,.94);border-bottom:0;box-shadow:0 8px 26px rgba(25,58,44,.045)}
-.brand i{border-radius:8px;background:var(--green)}
+.site-head{padding-inline:max(28px,calc((100vw - 1240px)/2));background:rgba(250,244,232,.9);border-bottom:0;box-shadow:0 8px 26px rgba(60,38,16,.05)}
+.brand i{border-radius:8px;background:var(--orange)}
 .nav-links{gap:18px}
 .nav-links a{border:0;padding:7px 0;position:relative}
 .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--orange);transition:right .2s ease}
 .nav-links a:hover::after,.nav-links a[aria-current="true"]::after{right:0}
 .hero{min-height:min(92svh,840px);align-items:flex-end;background:#16362d}
 .hero-img{transform:scale(1.02);animation:none;will-change:auto}
-.hero-veil{background:linear-gradient(90deg,rgba(10,33,27,.68),rgba(10,33,27,.18) 72%),linear-gradient(0deg,rgba(10,33,27,.82),transparent 76%)}
+.hero-veil{background:linear-gradient(90deg,rgba(24,15,7,.7),rgba(24,15,7,.18) 72%),linear-gradient(0deg,rgba(24,15,7,.84),transparent 76%)}
 .hero-inner{padding-block:125px 66px}
 .hero h1{font-size:clamp(42px,6.4vw,86px);max-width:990px;text-wrap:balance}
 .hero-sub{letter-spacing:.02em}
@@ -586,11 +586,11 @@ html{scroll-behavior:auto;scroll-padding-top:72px}
 .intro{grid-template-columns:170px minmax(0,760px);gap:72px;padding-top:98px;padding-bottom:52px}
 .intro-tag{position:static;border:0;font-weight:700}
 .prose{font-size:18px;line-height:1.95}
-.pull{border:0;padding:18px 24px;background:var(--green);color:#fff;border-radius:4px 16px 16px 4px}
+.pull{border:0;padding:18px 24px;background:var(--ink);color:#FBF3E2;border-radius:4px 16px 16px 4px}
 .evidence-note{border:0;border-radius:4px 12px 12px 4px;border-left:3px solid var(--orange)}
 .chapter-hero{margin-top:48px;border-radius:0 22px 22px 0;min-height:420px}
 .chapter-hero::before{opacity:.75}
-.chapter-hero::after{background:linear-gradient(90deg,rgba(13,45,34,.9),rgba(13,45,34,.48) 62%,rgba(13,45,34,.12))}
+.chapter-hero::after{background:linear-gradient(90deg,rgba(30,20,10,.9),rgba(30,20,10,.5) 62%,rgba(30,20,10,.14))}
 .chapter-no{font-weight:700;color:rgba(255,255,255,.19)}
 .sec{padding:68px 0}
 .sec-kicker{letter-spacing:.13em;font-weight:700}
@@ -612,14 +612,14 @@ html{scroll-behavior:auto;scroll-padding-top:72px}
 .case-tabs button[aria-selected="true"]{box-shadow:inset 0 -2px var(--orange)}
 .side-read{border:0;border-radius:4px 14px 14px 4px;border-left:3px solid var(--ch,var(--orange));box-shadow:none}
 .side-read::before{border:0;background:transparent}
-.method{background:var(--green);color:#f7f7ef;padding:70px 0}
+.method{background:#2E2115;color:#f7f0e0;padding:70px 0}
 .method h3,.method h4{color:#fff}
-.method p,.method a{color:#dce8dc}
+.method p,.method a{color:#e6d9c2}
 .method-grid>div{border:0;background:rgba(255,255,255,.08);border-radius:12px;padding:20px}
 .tablewrap{border:0;border-radius:14px;background:rgba(255,255,255,.06)}
 .tablewrap th{background:rgba(255,255,255,.12)}
 .tablewrap td,.tablewrap th{border-color:rgba(255,255,255,.12)}
-footer{background:#122d25;border-top:0}
+footer{background:#221910;border-top:0}
 .foot-bottom{border-top:0;padding-top:28px}
 .research-pair{background:#E9EFE7}
 .research-pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -905,7 +905,7 @@ footer{background:#122d25;border-top:0}
 
 /* ---- Hero：sticky 滚动舞台 ---- */
 .hero{display:none}
-.hero-scroll{position:relative;height:215svh;background:#16362d}
+.hero-scroll{position:relative;height:215svh;background:#241B10}
 .hero-stage{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden;display:flex;align-items:flex-end}
 .hero-stage .hero-img{will-change:transform}
 .hero-fog{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
@@ -995,6 +995,92 @@ body.paused .qbob{animation-play-state:paused}
   .pipe-cap{padding:12px 15px}
 }
 
+/* ================= v7：背景质感层 + PC 微交互 ================= */
+
+/* ---- 全局噪点颗粒 ---- */
+body::after{content:"";position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.045;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="200" height="200" filter="url(%23n)" opacity="0.6"/></svg>')}
+
+/* ---- 章节漂浮元素层 ---- */
+.chapter,.intro{position:relative}
+.chapter>.wrap,.chapter-hero,.intro>*{position:relative;z-index:1}
+.orn-layer{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;will-change:transform}
+.orn{position:absolute;color:var(--ch,#B0813C);opacity:.12;animation:ornFloat 13s ease-in-out infinite alternate}
+.orn svg{width:100%;height:auto;display:block}
+.orn-char{font-family:var(--serif);font-size:clamp(150px,20vw,300px);line-height:1;color:var(--ch,#B0813C);opacity:.055;font-weight:600}
+.orn-layer .orn:nth-child(2){animation-duration:17s;animation-delay:-4s}
+.orn-layer .orn:nth-child(3){animation-duration:21s;animation-delay:-9s}
+@keyframes ornFloat{from{transform:translateY(-12px) rotate(-1.5deg)}to{transform:translateY(14px) rotate(1.5deg)}}
+body.paused .orn{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.orn{animation:none}}
+
+/* ---- 卡片视差倾斜 + 光斑（卡片视差） ---- */
+.data-card.tiltable{transition:transform .2s ease-out,box-shadow .4s ease;transition-delay:0s;will-change:transform}
+.data-card.tiltable::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(430px circle at var(--tx,50%) var(--ty,50%),rgba(255,243,214,.5),rgba(255,243,214,0) 58%);opacity:0;transition:opacity .3s}
+.data-card.tiltable:hover::after{opacity:1}
+.chapter .data-card.tiltable{overflow:hidden}
+.chapter .data-card.tiltable::before{z-index:1}
+
+/* ---- 果冻开关 ---- */
+.motion-btn{display:inline-flex;align-items:center;gap:9px;background:none;border:0;padding:4px 2px;cursor:pointer}
+.sw-label{font-size:12px;color:var(--ink-2);letter-spacing:.06em;white-space:nowrap;transition:color .2s}
+.motion-btn[aria-pressed="true"] .sw-label{color:var(--muted)}
+.sw-track{position:relative;width:46px;height:25px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);transition:background .3s,border-color .3s;overflow:visible}
+.motion-btn[aria-pressed="true"] .sw-track{background:var(--orange);border-color:var(--orange)}
+.sw-knob{position:absolute;top:2.5px;left:2.5px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(40,24,8,.28);transition:left .4s cubic-bezier(.34,1.8,.5,1),transform .18s ease}
+.motion-btn:active .sw-knob{transform:scaleX(1.32) scaleY(.72)}
+.motion-btn[aria-pressed="true"] .sw-knob{left:23.5px}
+.motion-btn:hover .sw-label{color:var(--orange)}
+.sw-track.rippling::after{content:"";position:absolute;inset:-2px;border-radius:inherit;background:radial-gradient(circle,color-mix(in srgb,var(--orange) 40%,transparent),transparent 72%);animation:swRipple .55s ease-out;pointer-events:none}
+@keyframes swRipple{from{opacity:1;transform:scale(.35)}to{opacity:0;transform:scale(1.7)}}
+@media(max-width:940px){.motion-btn{display:none}}
+
+/* ---- 灵动岛章节胶囊 ---- */
+.ch-pill{position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:55;display:flex;align-items:center;gap:9px;padding:7px 16px;border-radius:999px;background:rgba(42,32,20,.9);color:#F7EFDF;font-size:12px;box-shadow:0 10px 26px rgba(30,18,6,.3);backdrop-filter:blur(8px);max-width:min(92vw,600px);user-select:none}
+.ch-pill .ch-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;transition:background .4s}
+.ch-pill-cur{white-space:nowrap;font-family:var(--serif);letter-spacing:.04em}
+.ch-pill-menu{display:flex;gap:2px;max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .5s cubic-bezier(.22,1,.36,1),opacity .35s,padding .4s}
+.ch-pill:hover .ch-pill-menu,.ch-pill:focus-within .ch-pill-menu{max-width:460px;opacity:1;padding-left:6px}
+.ch-pill-menu a{padding:3px 10px;border-radius:999px;color:rgba(247,239,223,.72);transition:.18s;flex:none;font-size:11.5px}
+.ch-pill-menu a:hover{background:rgba(247,239,223,.16);color:#fff}
+.ch-pill.pop{animation:pillPop .5s cubic-bezier(.34,1.6,.5,1)}
+@keyframes pillPop{0%{transform:translateX(-50%) scale(.9)}55%{transform:translateX(-50%) scale(1.06)}100%{transform:translateX(-50%) scale(1)}}
+@media(max-width:940px){.ch-pill{display:none}}
+
+/* ---- 消息级联展开 ---- */
+@keyframes cascadeIn{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
+.data-card.in .post-wall .post{animation:cascadeIn .55s cubic-bezier(.3,1.45,.5,1) backwards;animation-delay:calc(var(--ci,0)*55ms)}
+.data-card.in .quotes .quote{animation:cascadeIn .55s cubic-bezier(.3,1.45,.5,1) backwards;animation-delay:calc(var(--ci,0)*55ms)}
+.menu-grid.will.in .menu{animation:cascadeIn .6s cubic-bezier(.3,1.45,.5,1) backwards;animation-delay:calc(var(--ci,0)*70ms)}
+.menu-grid .menu:active{transform:scale(.97)}
+.menu .in{overflow:hidden}
+.menu img{transition:transform .45s ease}
+.menu:hover img{transform:scale(1.06)}
+
+/* ---- 爆炸爱心 ---- */
+.cheer{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:30px}
+.cheer-btn{position:relative;width:54px;height:54px;border-radius:50%;border:1px solid var(--line);background:var(--white);display:grid;place-items:center;transition:border-color .2s,transform .2s;box-shadow:0 10px 24px -18px rgba(60,38,16,.5)}
+.cheer-btn>svg{width:25px;height:25px;fill:none;stroke:var(--muted);stroke-width:1.7;transition:fill .25s,stroke .25s,transform .25s}
+.cheer-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
+.cheer-btn:hover>svg{stroke:var(--orange)}
+.cheer-btn[aria-pressed="true"]>svg{fill:var(--orange);stroke:var(--orange)}
+.cheer-btn.burst{animation:cheerPop .6s cubic-bezier(.34,2.2,.5,1)}
+@keyframes cheerPop{0%{transform:scale(.68)}55%{transform:scale(1.2)}100%{transform:scale(1)}}
+.cheer-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange);animation:ringOut .65s ease-out forwards;pointer-events:none}
+@keyframes ringOut{from{transform:scale(.55);opacity:.9}to{transform:scale(2.2);opacity:0}}
+.cheer-mini{position:absolute;left:50%;top:50%;width:11px;height:11px;pointer-events:none;animation:miniFly .75s cubic-bezier(.2,.7,.4,1) forwards}
+.cheer-mini svg{width:100%;height:100%;fill:var(--orange);opacity:.92}
+@keyframes miniFly{from{transform:translate(-50%,-50%) scale(.4) rotate(0);opacity:1}to{transform:translate(calc(-50% + var(--dx,30px)),calc(-50% + var(--dy,-30px))) scale(1.05) rotate(var(--r,60deg));opacity:0}}
+.cheer-note{font-size:13px;color:var(--muted);transition:color .3s}
+.cheer-note.on{color:var(--orange);font-weight:600}
+
+/* ---- 按钮形变：CTA 流光 ---- */
+.hero-cta{position:relative;overflow:hidden}
+.hero-cta::after{content:"";position:absolute;top:0;left:-75%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-18deg);transition:left .5s ease}
+.hero-cta:hover::after{left:125%}
+.hero-cta:active{transform:scale(.95)}
+.pipe-play:active{transform:scale(.94)}
+.menu-btn:active{transform:scale(.9)}
+
 </style>
 </head>
 <body>
@@ -1012,12 +1098,22 @@ body.paused .qbob{animation-play-state:paused}
     <a href="#ending">尾声</a>
     <a href="#sources">来源</a>
   </nav>
-  <button class="motion-btn" id="motion-btn" aria-pressed="false">暂停动效</button>
+  <button class="motion-btn" id="motion-btn" role="switch" aria-pressed="false" aria-label="暂停页面动效">
+    <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
+    <span class="sw-label">动效</span>
+  </button>
   <button class="menu-btn" id="menu-btn" aria-label="打开章节导航" aria-expanded="false" aria-controls="mobile-nav">☰</button>
 </header>
 <nav class="mobile-nav" id="mobile-nav" hidden>
   <a href="#part1">01 公共议题</a><a href="#part2">02 舆论场</a><a href="#part3">03 消费调查</a><a href="#part4">04 北京调查</a><a href="#part5">05 明示之后</a><a href="#ending">尾声</a><a href="#sources">来源</a>
 </nav>
+
+<!-- 灵动岛章节胶囊 -->
+<div class="ch-pill" id="ch-pill" aria-label="当前章节">
+  <span class="ch-dot" id="ch-pill-dot" aria-hidden="true"></span>
+  <span class="ch-pill-cur" id="ch-pill-cur">序 · 一盘菜的身份说明书</span>
+  <span class="ch-pill-menu" id="ch-pill-menu" aria-hidden="true"></span>
+</div>
 
 <main id="main">
   <!-- HERO：sticky 滚动叙事舞台 -->
@@ -1870,6 +1966,12 @@ body.paused .qbob{animation-play-state:paused}
     <p class="kicker" style="justify-content:center">Closing</p>
     <h2>菜单是第一知情关口，<br>也是<span>目前最薄弱</span>的一环。</h2>
     <p>我们希望这页报道结束时，你下次点菜时会多看一眼菜单——也多问一句。</p>
+    <div class="cheer">
+      <button class="cheer-btn" id="cheer-btn" aria-pressed="false" aria-label="点亮这篇报道">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-10-9.3C.4 8.9 2 5 5.6 5c2 0 3.4 1.1 4.4 2.6C11 6.1 12.4 5 14.4 5 18 5 19.6 8.9 22 11.7 19.5 16.1 12 21 12 21z"/></svg>
+      </button>
+      <span class="cheer-note">觉得这页有用？点亮它</span>
+    </div>
   </section>
 
   <!-- METHOD + SOURCES -->
@@ -1946,7 +2048,7 @@ body.paused .qbob{animation-play-state:paused}
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const chMeta = { part1: ['01', '#2E5A45'], part2: ['02', '#D95F2B'], part3: ['03', '#B0813C'], part4: ['04', '#7C5A3A'], part5: ['05', '#9E3B2E'] };
+  const chMeta = { part1: ['01', '#6B7C46'], part2: ['02', '#D8582A'], part3: ['03', '#B0813C'], part4: ['04', '#8A5A3A'], part5: ['05', '#A8432E'] };
   $$('.chapter').forEach(s => {
     const m = chMeta[s.id]; if (!m) return;
     s.style.setProperty('--ch', m[1]);
@@ -1974,11 +2076,24 @@ body.paused .qbob{animation-play-state:paused}
     }));
   }
   const navLinks = $$('.nav-links a');
+  const CH_INFO = { part1: ['01', '公共议题', '#6B7C46'], part2: ['02', '舆论场', '#D8582A'], part3: ['03', '消费调查', '#B0813C'], part4: ['04', '北京调查', '#8A5A3A'], part5: ['05', '明示之后', '#A8432E'], ending: ['尾', '尾声', '#B0552F'], sources: ['源', '来源', '#8A7A55'] };
+  const pill = $('#ch-pill'), pillCur = $('#ch-pill-cur'), pillDot = $('#ch-pill-dot'), pillMenu = $('#ch-pill-menu');
+  if (pillMenu) pillMenu.innerHTML = ['part1', 'part2', 'part3', 'part4', 'part5', 'ending'].map(id => {
+    const c = CH_INFO[id]; return '<a href="#' + id + '">' + c[0] + ' · ' + c[1] + '</a>';
+  }).join('');
+  function setPill(id) {
+    const info = CH_INFO[id];
+    if (!info || !pillCur) return;
+    pillCur.textContent = info[0] + ' · ' + info[1];
+    if (pillDot) pillDot.style.background = info[2];
+    if (pill) { pill.classList.remove('pop'); void pill.offsetWidth; pill.classList.add('pop'); }
+  }
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => {
       es.forEach(e => {
         if (e.isIntersecting) {
           navLinks.forEach(a => a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id)));
+          setPill(e.target.id);
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
@@ -1991,11 +2106,13 @@ body.paused .qbob{animation-play-state:paused}
   const motionBtn = $('#motion-btn');
   let paused = false;
   if (motionBtn) {
+    const swTrack = motionBtn.querySelector('.sw-track'), swLabel = motionBtn.querySelector('.sw-label');
     motionBtn.addEventListener('click', () => {
       paused = !paused;
       document.body.classList.toggle('paused', paused);
       motionBtn.setAttribute('aria-pressed', String(paused));
-      motionBtn.textContent = paused ? '开启动效' : '暂停动效';
+      if (swLabel) swLabel.textContent = paused ? '动效已停' : '动效';
+      if (swTrack) { swTrack.classList.remove('rippling'); void swTrack.offsetWidth; swTrack.classList.add('rippling'); }
       frame();
     });
   }
@@ -2015,17 +2132,18 @@ body.paused .qbob{animation-play-state:paused}
   }
   const chHeros = $$('.chapter-hero');
   let ticking = false;
+  let mx = 0, my = 0; /* 鼠标归一化偏移，供视差使用 */
   function frame() {
     if (!reduce && !paused) {
       if (heroSec) {
         const range = heroSec.offsetHeight - innerHeight;
         const p = Math.max(0, Math.min(1, scrollY / Math.max(1, range)));
-        heroImg.style.transform = 'scale(' + (1.04 + p * .1).toFixed(4) + ') translateY(' + (-p * 26).toFixed(1) + 'px)';
+        heroImg.style.transform = 'scale(' + (1.04 + p * .1).toFixed(4) + ') translateY(' + (-p * 26).toFixed(1) + 'px) translateX(' + (mx * 14).toFixed(1) + 'px)';
         heroInner.style.opacity = Math.max(0, 1 - p * 2.4).toFixed(3);
-        heroInner.style.transform = 'translateY(' + (-p * 70).toFixed(1) + 'px)';
+        heroInner.style.transform = 'translateY(' + (-p * 70).toFixed(1) + 'px) translateX(' + (mx * -8).toFixed(1) + 'px)';
         const q = Math.max(0, Math.min(1, (p - .55) / .3));
         heroQ.style.opacity = q.toFixed(3);
-        heroQ.style.transform = 'translateY(' + ((1 - q) * 48).toFixed(1) + 'px)';
+        heroQ.style.transform = 'translateY(' + ((1 - q) * 48).toFixed(1) + 'px) translateX(' + (mx * -10).toFixed(1) + 'px)';
         cueEl.style.opacity = Math.max(0, 1 - p * 5).toFixed(3);
       }
       chHeros.forEach(el => {
@@ -2409,6 +2527,7 @@ body.paused .qbob{animation-play-state:paused}
       '<strong>' + p.t + '</strong>' +
       '<small>' + p.tags.map(t => '#' + t).join('　') + ' · ' + p.id + ' ↗</small></a>'
     ).join('');
+    [...wall.children].forEach((el, i) => el.style.setProperty('--ci', i));
   }
   filterBox.addEventListener('click', e => {
     const b = e.target.closest('button[data-f]'); if (!b) return;
@@ -2853,6 +2972,122 @@ body.paused .qbob{animation-play-state:paused}
     dcards.forEach(c => cardIO.observe(c));
   } else {
     dcards.forEach(c => c.classList.add('in'));
+  }
+
+  /* ---------- v7：背景质感 + PC 微交互 ---------- */
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* 章节漂浮元素（蒸汽/盘子/菜单卡/筷子/引号 + 巨型汉字水印） */
+  const ORN = {
+    steam: '<svg viewBox="0 0 120 170"><path d="M60 160 C 48 128 72 110 60 78 C 50 52 70 38 60 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10"/></svg>',
+    plate: '<svg viewBox="0 0 180 110"><ellipse cx="90" cy="58" rx="80" ry="30" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="90" cy="52" rx="52" ry="18" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 9"/></svg>',
+    menu: '<svg viewBox="0 0 140 150"><rect x="28" y="22" width="84" height="106" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><line x1="44" y1="48" x2="96" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="66" x2="88" y2="66" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 6"/><line x1="44" y1="82" x2="92" y2="82" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="44" y1="98" x2="80" y2="98" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="4 7"/></svg>',
+    chop: '<svg viewBox="0 0 150 110"><line x1="20" y1="96" x2="118" y2="18" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><line x1="30" y1="102" x2="128" y2="30" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M12 88 a34 26 0 0 0 56 14" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+    ring: '<svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="52" fill="none" stroke="currentColor" stroke-width="2.6" stroke-dasharray="4 9"/><circle cx="65" cy="65" r="30" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10 6"/></svg>',
+    quote: '<svg viewBox="0 0 130 100"><text x="6" y="74" font-size="86" font-family="Georgia,serif" fill="currentColor">\u201C</text><text x="70" y="74" font-size="86" font-family="Georgia,serif" fill="currentColor">\u201D</text></svg>'
+  };
+  const ORN_PLANS = {
+    intro: [['char', '3%', '2%', '问'], ['steam', '90%', '56%', '110px']],
+    part1: [['char', '87%', '2%', '菜'], ['steam', '3%', '56%', '90px'], ['menu', '91%', '50%', '120px']],
+    part2: [['char', '2%', '3%', '声'], ['quote', '88%', '4%', '130px'], ['plate', '76%', '82%', '150px']],
+    part3: [['char', '87%', '3%', '测'], ['ring', '3%', '62%', '110px'], ['steam', '5%', '6%', '80px']],
+    part4: [['char', '2%', '2%', '查'], ['chop', '86%', '58%', '130px'], ['menu', '90%', '8%', '110px']],
+    part5: [['char', '87%', '4%', '合'], ['steam', '4%', '64%', '95px'], ['ring', '89%', '72%', '120px']]
+  };
+  Object.keys(ORN_PLANS).forEach(id => {
+    const host = document.getElementById(id);
+    if (!host) return;
+    const layer = document.createElement('div');
+    layer.className = 'orn-layer';
+    layer.setAttribute('aria-hidden', 'true');
+    ORN_PLANS[id].forEach(item => {
+      if (item[0] === 'char') {
+        layer.insertAdjacentHTML('beforeend', '<span class="orn orn-char" style="left:' + item[1] + ';top:' + item[2] + '">' + item[3] + '</span>');
+      } else {
+        layer.insertAdjacentHTML('beforeend', '<span class="orn" style="left:' + item[1] + ';top:' + item[2] + ';width:' + item[3] + '">' + ORN[item[0]] + '</span>');
+      }
+    });
+    host.appendChild(layer);
+  });
+
+  /* 鼠标视差：hero 层 + 各章节漂浮元素层 */
+  if (fine && !reduce) {
+    addEventListener('mousemove', e => {
+      mx = e.clientX / innerWidth - .5;
+      my = e.clientY / innerHeight - .5;
+      if (paused) return;
+      if (fog) fog.style.transform = 'translate3d(' + (mx * -20).toFixed(1) + 'px,' + (my * -12).toFixed(1) + 'px,0)';
+      if (!ticking) { requestAnimationFrame(frame); ticking = true; }
+      $$('.orn-layer').forEach(l => {
+        const r = l.parentElement.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > innerHeight + 80) return;
+        l.style.transform = 'translate3d(' + (mx * -16).toFixed(1) + 'px,' + (my * -12).toFixed(1) + 'px,0)';
+      });
+    }, { passive: true });
+  }
+
+  /* 卡片视差倾斜 + 光斑跟随 */
+  if (fine && !reduce) {
+    const tiltIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      tiltIO.unobserve(en.target);
+      setTimeout(() => en.target.classList.add('tiltable'), 950);
+    }), { threshold: .08 }) : null;
+    $$('.data-card').forEach(c => { if (tiltIO) tiltIO.observe(c); else c.classList.add('tiltable'); });
+    $$('.data-card').forEach(card => {
+      let raf = 0, lx = 0, ly = 0;
+      card.addEventListener('pointermove', e => {
+        if (paused || !card.classList.contains('tiltable')) return;
+        const r = card.getBoundingClientRect();
+        lx = (e.clientX - r.left) / r.width - .5;
+        ly = (e.clientY - r.top) / r.height - .5;
+        card.style.setProperty('--tx', ((lx + .5) * 100).toFixed(1) + '%');
+        card.style.setProperty('--ty', ((ly + .5) * 100).toFixed(1) + '%');
+        if (!raf) raf = requestAnimationFrame(() => {
+          raf = 0;
+          card.style.transform = 'perspective(1600px) rotateX(' + (-ly * 2.6).toFixed(2) + 'deg) rotateY(' + (lx * 3).toFixed(2) + 'deg) translateY(-2px)';
+        });
+      });
+      card.addEventListener('pointerleave', () => {
+        if (raf) { cancelAnimationFrame(raf); raf = 0; }
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* 级联索引：quote 卡 / 菜单卡 / 方法卡 */
+  $$('.quotes, .menu-grid, .method-grid').forEach(g => [...g.children].forEach((el, i) => el.style.setProperty('--ci', i)));
+
+  /* 爆炸爱心 */
+  const cheerBtn = $('#cheer-btn'), cheerNote = $('.cheer-note');
+  if (cheerBtn) {
+    const HEART = '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.4 8.9 2 5 5.6 5c2 0 3.4 1.1 4.4 2.6C11 6.1 12.4 5 14.4 5 18 5 19.6 8.9 22 11.7 19.5 16.1 12 21 12 21z"/></svg>';
+    cheerBtn.addEventListener('click', () => {
+      const on = cheerBtn.getAttribute('aria-pressed') !== 'true';
+      cheerBtn.setAttribute('aria-pressed', String(on));
+      if (cheerNote) {
+        cheerNote.textContent = on ? '谢谢，这页被你点亮了' : '觉得这页有用？点亮它';
+        cheerNote.classList.toggle('on', on);
+      }
+      if (!on || reduce) return;
+      cheerBtn.classList.remove('burst'); void cheerBtn.offsetWidth; cheerBtn.classList.add('burst');
+      const ring = document.createElement('span');
+      ring.className = 'cheer-ring';
+      cheerBtn.appendChild(ring);
+      setTimeout(() => ring.remove(), 700);
+      for (let i = 0; i < 10; i++) {
+        const m = document.createElement('span');
+        m.className = 'cheer-mini';
+        const ang = (Math.PI * 2 * i) / 10 + Math.random() * .6;
+        const dist = 44 + Math.random() * 36;
+        m.style.setProperty('--dx', (Math.cos(ang) * dist).toFixed(0) + 'px');
+        m.style.setProperty('--dy', (Math.sin(ang) * dist - 12).toFixed(0) + 'px');
+        m.style.setProperty('--r', (Math.round(Math.random() * 160 - 80)) + 'deg');
+        m.innerHTML = HEART;
+        cheerBtn.appendChild(m);
+        setTimeout(() => m.remove(), 800);
+      }
+    });
   }
 })();
 
