@@ -1,3 +1,1 @@
-# 预制菜知情权
-
-数据新闻专题网页。
+# precooked-right-to-know
