@@ -1013,73 +1013,9 @@ body::after{content:"";position:fixed;inset:0;z-index:2000;pointer-events:none;o
 body.paused .orn{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.orn{animation:none}}
 
-/* ---- 卡片视差倾斜 + 光斑（卡片视差） ---- */
-.data-card.tiltable{transition:transform .2s ease-out,box-shadow .4s ease;transition-delay:0s;will-change:transform}
-.data-card.tiltable::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(430px circle at var(--tx,50%) var(--ty,50%),rgba(255,243,214,.5),rgba(255,243,214,0) 58%);opacity:0;transition:opacity .3s}
-.data-card.tiltable:hover::after{opacity:1}
-.chapter .data-card.tiltable{overflow:hidden}
-.chapter .data-card.tiltable::before{z-index:1}
-
-/* ---- 果冻开关 ---- */
-.motion-btn{display:inline-flex;align-items:center;gap:9px;background:none;border:0;padding:4px 2px;cursor:pointer}
-.sw-label{font-size:12px;color:var(--ink-2);letter-spacing:.06em;white-space:nowrap;transition:color .2s}
-.motion-btn[aria-pressed="true"] .sw-label{color:var(--muted)}
-.sw-track{position:relative;width:46px;height:25px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line);transition:background .3s,border-color .3s;overflow:visible}
-.motion-btn[aria-pressed="true"] .sw-track{background:var(--orange);border-color:var(--orange)}
-.sw-knob{position:absolute;top:2.5px;left:2.5px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(40,24,8,.28);transition:left .4s cubic-bezier(.34,1.8,.5,1),transform .18s ease}
-.motion-btn:active .sw-knob{transform:scaleX(1.32) scaleY(.72)}
-.motion-btn[aria-pressed="true"] .sw-knob{left:23.5px}
-.motion-btn:hover .sw-label{color:var(--orange)}
-.sw-track.rippling::after{content:"";position:absolute;inset:-2px;border-radius:inherit;background:radial-gradient(circle,color-mix(in srgb,var(--orange) 40%,transparent),transparent 72%);animation:swRipple .55s ease-out;pointer-events:none}
-@keyframes swRipple{from{opacity:1;transform:scale(.35)}to{opacity:0;transform:scale(1.7)}}
-@media(max-width:940px){.motion-btn{display:none}}
-
-/* ---- 灵动岛章节胶囊 ---- */
-.ch-pill{position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:55;display:flex;align-items:center;gap:9px;padding:7px 16px;border-radius:999px;background:rgba(42,32,20,.9);color:#F7EFDF;font-size:12px;box-shadow:0 10px 26px rgba(30,18,6,.3);backdrop-filter:blur(8px);max-width:min(92vw,600px);user-select:none}
-.ch-pill .ch-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;transition:background .4s}
-.ch-pill-cur{white-space:nowrap;font-family:var(--serif);letter-spacing:.04em}
-.ch-pill-menu{display:flex;gap:2px;max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .5s cubic-bezier(.22,1,.36,1),opacity .35s,padding .4s}
-.ch-pill:hover .ch-pill-menu,.ch-pill:focus-within .ch-pill-menu{max-width:460px;opacity:1;padding-left:6px}
-.ch-pill-menu a{padding:3px 10px;border-radius:999px;color:rgba(247,239,223,.72);transition:.18s;flex:none;font-size:11.5px}
-.ch-pill-menu a:hover{background:rgba(247,239,223,.16);color:#fff}
-.ch-pill.pop{animation:pillPop .5s cubic-bezier(.34,1.6,.5,1)}
-@keyframes pillPop{0%{transform:translateX(-50%) scale(.9)}55%{transform:translateX(-50%) scale(1.06)}100%{transform:translateX(-50%) scale(1)}}
-@media(max-width:940px){.ch-pill{display:none}}
-
-/* ---- 消息级联展开 ---- */
-@keyframes cascadeIn{from{opacity:0;transform:translateY(16px) scale(.94)}to{opacity:1;transform:none}}
-.data-card.in .post-wall .post{animation:cascadeIn .55s cubic-bezier(.3,1.45,.5,1) backwards;animation-delay:calc(var(--ci,0)*55ms)}
-.data-card.in .quotes .quote{animation:cascadeIn .55s cubic-bezier(.3,1.45,.5,1) backwards;animation-delay:calc(var(--ci,0)*55ms)}
-.menu-grid.will.in .menu{animation:cascadeIn .6s cubic-bezier(.3,1.45,.5,1) backwards;animation-delay:calc(var(--ci,0)*70ms)}
-.menu-grid .menu:active{transform:scale(.97)}
-.menu .in{overflow:hidden}
+/* ---- v7 收尾：保留背景质感层，微交互样式已移除 ---- */
 .menu img{transition:transform .45s ease}
-.menu:hover img{transform:scale(1.06)}
-
-/* ---- 爆炸爱心 ---- */
-.cheer{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:30px}
-.cheer-btn{position:relative;width:54px;height:54px;border-radius:50%;border:1px solid var(--line);background:var(--white);display:grid;place-items:center;transition:border-color .2s,transform .2s;box-shadow:0 10px 24px -18px rgba(60,38,16,.5)}
-.cheer-btn>svg{width:25px;height:25px;fill:none;stroke:var(--muted);stroke-width:1.7;transition:fill .25s,stroke .25s,transform .25s}
-.cheer-btn:hover{border-color:var(--orange);transform:translateY(-2px)}
-.cheer-btn:hover>svg{stroke:var(--orange)}
-.cheer-btn[aria-pressed="true"]>svg{fill:var(--orange);stroke:var(--orange)}
-.cheer-btn.burst{animation:cheerPop .6s cubic-bezier(.34,2.2,.5,1)}
-@keyframes cheerPop{0%{transform:scale(.68)}55%{transform:scale(1.2)}100%{transform:scale(1)}}
-.cheer-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--orange);animation:ringOut .65s ease-out forwards;pointer-events:none}
-@keyframes ringOut{from{transform:scale(.55);opacity:.9}to{transform:scale(2.2);opacity:0}}
-.cheer-mini{position:absolute;left:50%;top:50%;width:11px;height:11px;pointer-events:none;animation:miniFly .75s cubic-bezier(.2,.7,.4,1) forwards}
-.cheer-mini svg{width:100%;height:100%;fill:var(--orange);opacity:.92}
-@keyframes miniFly{from{transform:translate(-50%,-50%) scale(.4) rotate(0);opacity:1}to{transform:translate(calc(-50% + var(--dx,30px)),calc(-50% + var(--dy,-30px))) scale(1.05) rotate(var(--r,60deg));opacity:0}}
-.cheer-note{font-size:13px;color:var(--muted);transition:color .3s}
-.cheer-note.on{color:var(--orange);font-weight:600}
-
-/* ---- 按钮形变：CTA 流光 ---- */
-.hero-cta{position:relative;overflow:hidden}
-.hero-cta::after{content:"";position:absolute;top:0;left:-75%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-18deg);transition:left .5s ease}
-.hero-cta:hover::after{left:125%}
-.hero-cta:active{transform:scale(.95)}
-.pipe-play:active{transform:scale(.94)}
-.menu-btn:active{transform:scale(.9)}
+.menu:hover img{transform:scale(1.04)}
 
 </style>
 </head>
@@ -1098,22 +1034,12 @@ body.paused .orn{animation-play-state:paused}
     <a href="#ending">尾声</a>
     <a href="#sources">来源</a>
   </nav>
-  <button class="motion-btn" id="motion-btn" role="switch" aria-pressed="false" aria-label="暂停页面动效">
-    <span class="sw-track" aria-hidden="true"><span class="sw-knob"></span></span>
-    <span class="sw-label">动效</span>
-  </button>
+  <button class="motion-btn" id="motion-btn" aria-pressed="false">暂停动效</button>
   <button class="menu-btn" id="menu-btn" aria-label="打开章节导航" aria-expanded="false" aria-controls="mobile-nav">☰</button>
 </header>
 <nav class="mobile-nav" id="mobile-nav" hidden>
   <a href="#part1">01 公共议题</a><a href="#part2">02 舆论场</a><a href="#part3">03 消费调查</a><a href="#part4">04 北京调查</a><a href="#part5">05 明示之后</a><a href="#ending">尾声</a><a href="#sources">来源</a>
 </nav>
-
-<!-- 灵动岛章节胶囊 -->
-<div class="ch-pill" id="ch-pill" aria-label="当前章节">
-  <span class="ch-dot" id="ch-pill-dot" aria-hidden="true"></span>
-  <span class="ch-pill-cur" id="ch-pill-cur">序 · 一盘菜的身份说明书</span>
-  <span class="ch-pill-menu" id="ch-pill-menu" aria-hidden="true"></span>
-</div>
 
 <main id="main">
   <!-- HERO：sticky 滚动叙事舞台 -->
@@ -1193,17 +1119,17 @@ body.paused .orn{animation-play-state:paused}
       <div class="sec">
         <p class="sec-kicker">认知线</p>
         <h3>“预制菜”三个字，每个人想的都不一样</h3>
-        <p class="sec-lead">消费者说的“预制菜”、政策定义的“预制菜”、餐饮实际加工的“预制菜”，是三个不完全重合的圈。点击任意圆或交叉区域，看每个主体的依据与原始数据——包括他们想法不一致、恰恰最有信息量的交叉地带。</p>
+        <p class="sec-lead">消费者说的“预制菜”、政策定义的“预制菜”、餐饮实际加工的“预制菜”，是三个不完全重合的圈。把鼠标悬停到任意圆或交叉区域，看每个主体的依据与原始数据——包括他们想法不一致、恰恰最有信息量的交叉地带。</p>
 
         <figure class="data-card" id="fig-venn">
           <figcaption>
             <span class="fig-no">图表 02 · 交互</span>
             <h4>三种“预制菜”：各自怎么想，哪里重合</h4>
-            <p>点击圆圈或交叉区域，查看每一方的观点与<b>原始数据出处</b>——每一条都来自一手编码、政策原文或可核查报道；圆的大小与位置不表示数量比例。</p>
+            <p>悬停圆圈或交叉区域，查看每一方的观点与<b>原始数据出处</b>——每一条都来自一手编码、政策原文或可核查报道；圆的大小与位置不表示数量比例。</p>
           </figcaption>
           <div class="venn-wrap">
             <div class="venn-left">
-              <svg viewBox="0 0 680 400" class="venn" aria-label="公众日常理解、政策定义与餐饮实际加工的三圈对照图，各区域可点击查看原始数据">
+              <svg viewBox="0 0 680 400" class="venn" aria-label="公众日常理解、政策定义与餐饮实际加工的三圈对照图，各区域可悬停查看原始数据">
                 <defs>
                   <clipPath id="clipB"><circle cx="440" cy="168" r="126"/></clipPath>
                   <clipPath id="clipC"><circle cx="340" cy="246" r="126"/></clipPath>
@@ -1219,9 +1145,9 @@ body.paused .orn{animation-play-state:paused}
                   <circle class="vov" data-zone="a" cx="240" cy="168" r="126" mask="url(#mBC)"/>
                   <circle class="vov" data-zone="b" cx="440" cy="168" r="126" mask="url(#mAC)"/>
                   <circle class="vov" data-zone="c" cx="340" cy="246" r="126" mask="url(#mAB)"/>
-                  <circle class="vov" data-zone="ab" cx="240" cy="168" r="126" clip-path="url(#clipB)" mask="url(#mC)"/>
-                  <circle class="vov" data-zone="ac" cx="240" cy="168" r="126" clip-path="url(#clipC)" mask="url(#mB)"/>
-                  <circle class="vov" data-zone="bc" cx="440" cy="168" r="126" clip-path="url(#clipC)" mask="url(#mA)"/>
+                  <circle class="vov" data-zone="ab" cx="240" cy="168" r="126" clip-path="url(#clipB)"/>
+                  <circle class="vov" data-zone="ac" cx="240" cy="168" r="126" clip-path="url(#clipC)"/>
+                  <circle class="vov" data-zone="bc" cx="440" cy="168" r="126" clip-path="url(#clipC)"/>
                   <g class="vov" data-zone="abc"><g clip-path="url(#clipB)"><circle cx="240" cy="168" r="126" clip-path="url(#clipC)"/></g></g>
                 </g>
                 <g class="vtxt" pointer-events="none">
@@ -1966,12 +1892,6 @@ body.paused .orn{animation-play-state:paused}
     <p class="kicker" style="justify-content:center">Closing</p>
     <h2>菜单是第一知情关口，<br>也是<span>目前最薄弱</span>的一环。</h2>
     <p>我们希望这页报道结束时，你下次点菜时会多看一眼菜单——也多问一句。</p>
-    <div class="cheer">
-      <button class="cheer-btn" id="cheer-btn" aria-pressed="false" aria-label="点亮这篇报道">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-10-9.3C.4 8.9 2 5 5.6 5c2 0 3.4 1.1 4.4 2.6C11 6.1 12.4 5 14.4 5 18 5 19.6 8.9 22 11.7 19.5 16.1 12 21 12 21z"/></svg>
-      </button>
-      <span class="cheer-note">觉得这页有用？点亮它</span>
-    </div>
   </section>
 
   <!-- METHOD + SOURCES -->
@@ -2076,24 +1996,11 @@ body.paused .orn{animation-play-state:paused}
     }));
   }
   const navLinks = $$('.nav-links a');
-  const CH_INFO = { part1: ['01', '公共议题', '#6B7C46'], part2: ['02', '舆论场', '#D8582A'], part3: ['03', '消费调查', '#B0813C'], part4: ['04', '北京调查', '#8A5A3A'], part5: ['05', '明示之后', '#A8432E'], ending: ['尾', '尾声', '#B0552F'], sources: ['源', '来源', '#8A7A55'] };
-  const pill = $('#ch-pill'), pillCur = $('#ch-pill-cur'), pillDot = $('#ch-pill-dot'), pillMenu = $('#ch-pill-menu');
-  if (pillMenu) pillMenu.innerHTML = ['part1', 'part2', 'part3', 'part4', 'part5', 'ending'].map(id => {
-    const c = CH_INFO[id]; return '<a href="#' + id + '">' + c[0] + ' · ' + c[1] + '</a>';
-  }).join('');
-  function setPill(id) {
-    const info = CH_INFO[id];
-    if (!info || !pillCur) return;
-    pillCur.textContent = info[0] + ' · ' + info[1];
-    if (pillDot) pillDot.style.background = info[2];
-    if (pill) { pill.classList.remove('pop'); void pill.offsetWidth; pill.classList.add('pop'); }
-  }
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => {
       es.forEach(e => {
         if (e.isIntersecting) {
           navLinks.forEach(a => a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id)));
-          setPill(e.target.id);
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
@@ -2106,13 +2013,11 @@ body.paused .orn{animation-play-state:paused}
   const motionBtn = $('#motion-btn');
   let paused = false;
   if (motionBtn) {
-    const swTrack = motionBtn.querySelector('.sw-track'), swLabel = motionBtn.querySelector('.sw-label');
     motionBtn.addEventListener('click', () => {
       paused = !paused;
       document.body.classList.toggle('paused', paused);
       motionBtn.setAttribute('aria-pressed', String(paused));
-      if (swLabel) swLabel.textContent = paused ? '动效已停' : '动效';
-      if (swTrack) { swTrack.classList.remove('rippling'); void swTrack.offsetWidth; swTrack.classList.add('rippling'); }
+      motionBtn.textContent = paused ? '开启动效' : '暂停动效';
       frame();
     });
   }
@@ -2132,18 +2037,17 @@ body.paused .orn{animation-play-state:paused}
   }
   const chHeros = $$('.chapter-hero');
   let ticking = false;
-  let mx = 0, my = 0; /* 鼠标归一化偏移，供视差使用 */
   function frame() {
     if (!reduce && !paused) {
       if (heroSec) {
         const range = heroSec.offsetHeight - innerHeight;
         const p = Math.max(0, Math.min(1, scrollY / Math.max(1, range)));
-        heroImg.style.transform = 'scale(' + (1.04 + p * .1).toFixed(4) + ') translateY(' + (-p * 26).toFixed(1) + 'px) translateX(' + (mx * 14).toFixed(1) + 'px)';
+        heroImg.style.transform = 'scale(' + (1.04 + p * .1).toFixed(4) + ') translateY(' + (-p * 26).toFixed(1) + 'px)';
         heroInner.style.opacity = Math.max(0, 1 - p * 2.4).toFixed(3);
-        heroInner.style.transform = 'translateY(' + (-p * 70).toFixed(1) + 'px) translateX(' + (mx * -8).toFixed(1) + 'px)';
+        heroInner.style.transform = 'translateY(' + (-p * 70).toFixed(1) + 'px)';
         const q = Math.max(0, Math.min(1, (p - .55) / .3));
         heroQ.style.opacity = q.toFixed(3);
-        heroQ.style.transform = 'translateY(' + ((1 - q) * 48).toFixed(1) + 'px) translateX(' + (mx * -10).toFixed(1) + 'px)';
+        heroQ.style.transform = 'translateY(' + ((1 - q) * 48).toFixed(1) + 'px)';
         cueEl.style.opacity = Math.max(0, 1 - p * 5).toFixed(3);
       }
       chHeros.forEach(el => {
@@ -2527,7 +2431,6 @@ body.paused .orn{animation-play-state:paused}
       '<strong>' + p.t + '</strong>' +
       '<small>' + p.tags.map(t => '#' + t).join('　') + ' · ' + p.id + ' ↗</small></a>'
     ).join('');
-    [...wall.children].forEach((el, i) => el.style.setProperty('--ci', i));
   }
   filterBox.addEventListener('click', e => {
     const b = e.target.closest('button[data-f]'); if (!b) return;
@@ -2809,7 +2712,7 @@ body.paused .orn{animation-play-state:paused}
   };
   const vennPanel = $('#venn-panel'), vennChips = $('#venn-chips');
   const zoneOrder = ['a', 'b', 'c', 'ab', 'ac', 'bc', 'abc'];
-  vennChips.innerHTML = zoneOrder.map(z => '<button data-z="' + z + '" aria-pressed="false">' + vennZones[z].label.replace(/ ·.*/, '') + '</button>').join('');
+  vennChips.innerHTML = zoneOrder.map(z => '<button data-z="' + z + '" aria-pressed="false">' + vennZones[z].label.replace(/ ·.*/, '').replace(/：.*/, '') + '</button>').join('');
   function showZone(z) {
     const d = vennZones[z];
     $$('.vov').forEach(o => o.classList.toggle('on', o.dataset.zone === z));
@@ -2818,7 +2721,10 @@ body.paused .orn{animation-play-state:paused}
     vennPanel.innerHTML = '<strong>' + d.label + '</strong><p class="vp-gist">' + d.gist + '</p>' +
       d.items.map(it => '<div class="vp-item"><p>' + it.t + '</p>' + (it.u ? '<a href="' + it.u + '" target="_blank" rel="noopener">' + (it.l || '来源') + ' ↗</a>' : '<span class="vp-src">' + (it.l || '') + '</span>') + '</div>').join('');
   }
-  $$('.vov').forEach(o => o.addEventListener('click', () => showZone(o.dataset.zone)));
+  $$('.vov').forEach(o => {
+    o.addEventListener('pointerenter', () => showZone(o.dataset.zone));
+    o.addEventListener('click', () => showZone(o.dataset.zone));
+  });
   vennChips.addEventListener('click', e => { const b = e.target.closest('button[data-z]'); if (b) showZone(b.dataset.z); });
   showZone('ab');
 
@@ -2974,7 +2880,7 @@ body.paused .orn{animation-play-state:paused}
     dcards.forEach(c => c.classList.add('in'));
   }
 
-  /* ---------- v7：背景质感 + PC 微交互 ---------- */
+  /* ---------- v7：背景质感层（保留暖调与漂浮元素，移除微交互） ---------- */
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
   /* 章节漂浮元素（蒸汽/盘子/菜单卡/筷子/引号 + 巨型汉字水印） */
@@ -3009,86 +2915,6 @@ body.paused .orn{animation-play-state:paused}
     });
     host.appendChild(layer);
   });
-
-  /* 鼠标视差：hero 层 + 各章节漂浮元素层 */
-  if (fine && !reduce) {
-    addEventListener('mousemove', e => {
-      mx = e.clientX / innerWidth - .5;
-      my = e.clientY / innerHeight - .5;
-      if (paused) return;
-      if (fog) fog.style.transform = 'translate3d(' + (mx * -20).toFixed(1) + 'px,' + (my * -12).toFixed(1) + 'px,0)';
-      if (!ticking) { requestAnimationFrame(frame); ticking = true; }
-      $$('.orn-layer').forEach(l => {
-        const r = l.parentElement.getBoundingClientRect();
-        if (r.bottom < -80 || r.top > innerHeight + 80) return;
-        l.style.transform = 'translate3d(' + (mx * -16).toFixed(1) + 'px,' + (my * -12).toFixed(1) + 'px,0)';
-      });
-    }, { passive: true });
-  }
-
-  /* 卡片视差倾斜 + 光斑跟随 */
-  if (fine && !reduce) {
-    const tiltIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => {
-      if (!en.isIntersecting) return;
-      tiltIO.unobserve(en.target);
-      setTimeout(() => en.target.classList.add('tiltable'), 950);
-    }), { threshold: .08 }) : null;
-    $$('.data-card').forEach(c => { if (tiltIO) tiltIO.observe(c); else c.classList.add('tiltable'); });
-    $$('.data-card').forEach(card => {
-      let raf = 0, lx = 0, ly = 0;
-      card.addEventListener('pointermove', e => {
-        if (paused || !card.classList.contains('tiltable')) return;
-        const r = card.getBoundingClientRect();
-        lx = (e.clientX - r.left) / r.width - .5;
-        ly = (e.clientY - r.top) / r.height - .5;
-        card.style.setProperty('--tx', ((lx + .5) * 100).toFixed(1) + '%');
-        card.style.setProperty('--ty', ((ly + .5) * 100).toFixed(1) + '%');
-        if (!raf) raf = requestAnimationFrame(() => {
-          raf = 0;
-          card.style.transform = 'perspective(1600px) rotateX(' + (-ly * 2.6).toFixed(2) + 'deg) rotateY(' + (lx * 3).toFixed(2) + 'deg) translateY(-2px)';
-        });
-      });
-      card.addEventListener('pointerleave', () => {
-        if (raf) { cancelAnimationFrame(raf); raf = 0; }
-        card.style.transform = '';
-      });
-    });
-  }
-
-  /* 级联索引：quote 卡 / 菜单卡 / 方法卡 */
-  $$('.quotes, .menu-grid, .method-grid').forEach(g => [...g.children].forEach((el, i) => el.style.setProperty('--ci', i)));
-
-  /* 爆炸爱心 */
-  const cheerBtn = $('#cheer-btn'), cheerNote = $('.cheer-note');
-  if (cheerBtn) {
-    const HEART = '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.9-10-9.3C.4 8.9 2 5 5.6 5c2 0 3.4 1.1 4.4 2.6C11 6.1 12.4 5 14.4 5 18 5 19.6 8.9 22 11.7 19.5 16.1 12 21 12 21z"/></svg>';
-    cheerBtn.addEventListener('click', () => {
-      const on = cheerBtn.getAttribute('aria-pressed') !== 'true';
-      cheerBtn.setAttribute('aria-pressed', String(on));
-      if (cheerNote) {
-        cheerNote.textContent = on ? '谢谢，这页被你点亮了' : '觉得这页有用？点亮它';
-        cheerNote.classList.toggle('on', on);
-      }
-      if (!on || reduce) return;
-      cheerBtn.classList.remove('burst'); void cheerBtn.offsetWidth; cheerBtn.classList.add('burst');
-      const ring = document.createElement('span');
-      ring.className = 'cheer-ring';
-      cheerBtn.appendChild(ring);
-      setTimeout(() => ring.remove(), 700);
-      for (let i = 0; i < 10; i++) {
-        const m = document.createElement('span');
-        m.className = 'cheer-mini';
-        const ang = (Math.PI * 2 * i) / 10 + Math.random() * .6;
-        const dist = 44 + Math.random() * 36;
-        m.style.setProperty('--dx', (Math.cos(ang) * dist).toFixed(0) + 'px');
-        m.style.setProperty('--dy', (Math.sin(ang) * dist - 12).toFixed(0) + 'px');
-        m.style.setProperty('--r', (Math.round(Math.random() * 160 - 80)) + 'deg');
-        m.innerHTML = HEART;
-        cheerBtn.appendChild(m);
-        setTimeout(() => m.remove(), 800);
-      }
-    });
-  }
 })();
 
 </script>
