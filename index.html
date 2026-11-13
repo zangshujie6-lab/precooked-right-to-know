@@ -631,6 +631,15 @@ footer{background:#122d25;border-top:0}
 .research-pair-grid p{font-size:14px;line-height:1.8;margin:0 0 12px;color:var(--ink-2)}
 .research-pair-grid em{display:block;font-size:12px;line-height:1.7;font-style:normal;font-weight:700;color:#9f4938;margin-bottom:14px}
 .research-pair-grid a{font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+/* 研究卡：研究问题 / 关键发现 / 对本题的意义 */
+.research-pair-grid .study-q{font-size:12.5px;line-height:1.75;color:var(--ink);background:#F3F6F1;border-left:3px solid #8FA97C;padding:9px 12px;border-radius:0 8px 8px 0;margin:0 0 12px}
+.study-q b,.study-take b{display:block;font-size:10.5px;letter-spacing:.14em;color:#5C7A66;margin-bottom:3px;font-weight:700}
+.study-find{list-style:none;margin:0 0 12px;padding:0}
+.study-find li{position:relative;padding-left:14px;margin-bottom:9px;font-size:13px;line-height:1.8;color:var(--ink-2)}
+.study-find li:last-child{margin-bottom:0}
+.study-find li::before{content:'';position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:#B0813C}
+.study-find li b{color:var(--ink);font-weight:700}
+.study-take{font-size:12.5px;line-height:1.85;color:#3C5F49;background:#EEF3EC;border-radius:9px;padding:10px 12px;margin:0 0 12px}
 .research-pair>.note{margin-top:16px}
 .ev-modal-card{border-radius:18px}
 .site-head a:focus-visible,.site-head button:focus-visible,.data-card button:focus-visible,.data-card a:focus-visible,.hero a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
@@ -750,12 +759,16 @@ footer{background:#122d25;border-top:0}
 
 /* DT 条件竖柱 */
 .vbars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:10px 0 4px}
-.vbar{display:flex;flex-direction:column;align-items:center;gap:9px}
+.vbar{display:flex;flex-direction:column;align-items:center;gap:7px}
+.vb-rank{font-size:10px;letter-spacing:.12em;color:#5C7A66;font-weight:700;border:1px solid #CBDCC6;border-radius:999px;padding:2px 9px;line-height:1.4}
+.vbar.is-neg .vb-rank{color:#9E3B2E;border-color:#E4C3BC;background:#FBF0EE}
 .vb-col{height:220px;width:100%;max-width:78px;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(228,215,192,.28),rgba(228,215,192,.06));border-radius:10px 10px 4px 4px;overflow:hidden}
+.vbar.is-neg .vb-col{background:repeating-linear-gradient(135deg,rgba(228,215,192,.22),rgba(228,215,192,.22) 6px,rgba(228,215,192,.08) 6px,rgba(228,215,192,.08) 12px)}
 .vb-col i{width:100%;height:0;border-radius:10px 10px 4px 4px;transition:height 1.2s cubic-bezier(.22,1,.36,1)}
 .data-card.in .vb-col i{height:var(--h)}
-.vbar em{font-style:normal;font-family:var(--serif);font-size:19px;color:var(--ink)}
-.vbar b{font-size:12.5px;line-height:1.6;text-align:center;color:var(--ink-2);min-height:42px;display:flex;align-items:center;justify-content:center}
+.vbar em{font-style:normal;font-family:var(--serif);font-size:21px;color:var(--ink)}
+.vbar b{font-size:12.5px;line-height:1.6;text-align:center;color:var(--ink);min-height:38px;display:flex;align-items:center;justify-content:center;font-weight:600}
+.vb-gloss{font-size:11.5px;line-height:1.7;text-align:center;color:var(--muted);padding:0 4px}
 @media(max-width:760px){.vbars{grid-template-columns:1fr 1fr;gap:22px}.vb-col{height:180px}}
 
 /* 场景面积图 */
@@ -801,23 +814,60 @@ footer{background:#122d25;border-top:0}
 .rn-col span{font-size:11px;line-height:1.55;color:var(--muted)}
 @media(max-width:820px){.rn-cols{grid-template-columns:1fr}.rn-bars{height:190px}}
 
-/* ---- v4.4：右侧留白利用 ---- */
-/* 立场柱：详情面板移至色块右侧 */
-.stance-wrap{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:stretch}
-.stance-left{display:flex;flex-direction:column;justify-content:flex-start;width:130px;flex:none}
-.stance-left .legend{flex-direction:column;gap:7px;font-size:11.5px;margin-bottom:0}
-.stance-detail{margin-top:0;display:flex;flex-direction:column;justify-content:center;border-left:3px solid var(--gold);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:12px;min-height:280px}
-@media(max-width:860px){.stance-wrap{grid-template-columns:1fr}.stance-left{width:auto}.stance-left .legend{flex-direction:row;flex-wrap:wrap}.stance-detail{min-height:0;margin-top:4px}}
+/* ---- v4.5：立场区重构（色块 + 详情 + 知情时点横条） ---- */
+.stance-wrap{display:grid;grid-template-columns:132px 1fr;gap:26px;align-items:stretch}
+.stance-left{display:flex;flex-direction:column;justify-content:flex-start;width:132px;flex:none}
+.stance-col{height:300px;width:76px}
+.stance-left .legend{flex-direction:column;gap:6px;font-size:11.5px;margin-bottom:0}
+.stance-legend button{display:inline-flex;align-items:center;gap:7px;background:transparent;border:0;padding:3px 0;font-family:inherit;font-size:11.5px;color:var(--ink-2);cursor:pointer;text-align:left;transition:color .18s}
+.stance-legend button:hover{color:var(--ink)}
+.stance-legend button[aria-pressed="true"]{color:var(--ink);font-weight:700}
+.stance-legend button[aria-pressed="true"] i{box-shadow:0 0 0 3px rgba(36,31,26,.12)}
+.stance-detail{margin-top:0;display:flex;flex-direction:column;justify-content:center;gap:8px;border-left:3px solid var(--gold);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:12px;min-height:300px;padding:22px 24px;background:linear-gradient(180deg,#FCF9F0,#F8F2E4)}
+.stance-detail strong{font-family:var(--serif);font-size:16px;color:var(--ink)}
+.stance-detail p{margin:0;font-size:13px;line-height:1.9;color:var(--ink-2)}
+.stance-detail .stance-read{font-family:var(--serif);font-size:14px;line-height:1.8;color:#7A5B25;border-left:2px solid var(--gold);padding-left:11px}
+.stance-ex{border-top:1px dashed var(--line);padding-top:11px;margin-top:2px}
+.stance-ex b{display:block;font-size:10.5px;letter-spacing:.16em;color:#5C7A66;margin-bottom:5px}
+.stance-ex p{font-size:12.5px;line-height:1.8;margin-bottom:3px}
+.stance-ex a{color:var(--orange);text-decoration:none;font-size:11.5px;margin-left:4px}
+.stance-ex a:hover{text-decoration:underline}
+/* 知情时点横条 */
+.aware-strip{display:grid;grid-template-columns:196px 1fr;gap:24px;align-items:center;margin-top:18px;padding:18px 22px;border-radius:14px;background:var(--paper);border:1px solid var(--line)}
+.aware-hero{display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--line);padding-right:18px}
+.aware-hero b{font-family:var(--serif);font-size:48px;line-height:1;letter-spacing:-.03em;color:#9E3B2E}
+.aware-hero b small{font-size:.4em;margin-left:2px}
+.aware-hero span{font-size:12px;line-height:1.7;color:var(--ink-2);margin-top:6px}
+.aware-rows{display:grid;gap:7px}
+.aware-row{display:grid;grid-template-columns:88px 1fr 34px 20px;align-items:center;gap:10px;font-size:12.5px;color:var(--ink-2)}
+.aware-row .aware-n{color:var(--ink)}
+.aware-dots{display:flex;gap:5px;flex-wrap:wrap}
+.aware-dots i{width:11px;height:11px;border-radius:50%;display:block}
+.aware-row b{font-family:var(--serif);font-size:15px;color:var(--ink);text-align:right}
+.aware-row em{font-style:normal;font-size:11px;color:var(--muted)}
+.aware-bar{height:8px;border-radius:4px;background:#EFE7D6;overflow:hidden;display:block}
+.aware-bar i{display:block;height:100%;width:91.8%;background:repeating-linear-gradient(135deg,#D8CDB8,#D8CDB8 5px,#E6DCC8 5px,#E6DCC8 10px)}
+.aware-row.is-blank b{color:#9E3B2E}
+.aware-strip .aware-note{grid-column:1/-1;margin:0;padding-top:10px;border-top:1px dashed var(--line);font-size:12px;line-height:1.8;color:var(--muted)}
+@media(max-width:860px){
+  .stance-wrap{grid-template-columns:1fr}
+  .stance-left{width:auto;flex-direction:row;gap:18px;align-items:flex-start}
+  .stance-col{width:56px;height:220px}
+  .stance-left .legend{flex-direction:row;flex-wrap:wrap}
+  .stance-detail{min-height:0;margin-top:4px}
+  .aware-strip{grid-template-columns:1fr}
+  .aware-hero{border-right:0;border-bottom:1px solid var(--line);padding:0 0 12px}
+}
 
 /* 词云：盘中主菜 + 升起的热气 */
-.cloud-dish{position:relative;height:460px;margin:10px 0 6px;overflow:hidden}
-.cloud-dish button{position:absolute;transform:translate(-50%,-50%);padding:2px 8px;border-radius:9px;line-height:1.25;white-space:nowrap;color:var(--ink-2);transition:background .18s,box-shadow .18s;font-family:var(--serif);z-index:2}
+.cloud-dish{position:relative;height:420px;margin:6px 0 4px;overflow:hidden}
+.cloud-dish button{position:absolute;transform:translate(-50%,-50%);padding:1px 6px;border-radius:9px;line-height:1.2;white-space:nowrap;color:var(--ink-2);transition:background .18s,box-shadow .18s;font-family:var(--serif);z-index:2}
 .cloud-dish button:hover{background:var(--paper-2)}
 .cloud-dish button[aria-pressed="true"]{background:var(--ink);color:#F8F3E7!important;box-shadow:0 0 0 3px rgba(36,31,26,.12)}
 .cloud-dish button sup{font-family:var(--sans);font-size:9px;opacity:.55;margin-left:2px;vertical-align:super}
-.cloud-steam{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.cloud-steam{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block}
 .cloud-plate{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,92%);z-index:1}
-@media(max-width:640px){.cloud-dish{height:400px}.cloud-dish button{transform:translate(-50%,-50%) scale(.82)}}
+@media(max-width:640px){.cloud-dish{height:380px}.cloud-dish button{transform:translate(-50%,-50%) scale(.82)}}
 
 /* 热力图：右侧原声栏 */
 .heat-wrap{display:grid;grid-template-columns:1fr 252px;gap:26px;align-items:start}
@@ -1131,23 +1181,33 @@ footer{background:#122d25;border-top:0}
         <figure class="data-card research-pair" id="fig-social-studies">
           <div class="research-pair-grid">
             <article>
-              <span class="study-kicker">六平台 · 2022—2024</span>
+              <span class="study-kicker">六平台 · 2022.7—2024.3</span>
               <strong>60.6<small>万条</small></strong>
               <h4>多平台评论研究</h4>
-              <p>研究收集 606,470 条评论，清洗后分析 200,993 条；其中微博分析样本为 18,370 条。六平台合并样本的算法负面分类占 64.11%。</p>
-              <em>64.11% 不是微博单独比例，也不代表消费者总体态度。</em>
-              <a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2024.1424690/full" target="_blank" rel="noopener">查看论文与样本表 ↗</a>
+              <p class="study-q"><b>研究问题</b>公众在社交媒体上究竟怎么谈论预制菜的健康影响？</p>
+              <ul class="study-find">
+                <li><b>64.11%</b> 的评论被判为负面，正面 35.89%（200,993 条有效评论，SnowNLP 情感打分）</li>
+                <li>对 12.9 万条负面评论做主题聚类，前 50 个主题里 <b>11 个与健康相关</b>：“防腐剂、添加剂”排负面主题第 1，“中小学食堂”第 2</li>
+                <li>讨论跟着事件走：<b>2023 年 9 月</b>开学季、<b>2024 年 3 月</b>“3·15”曝光，讨论量与负面比例两次同步冲高；地方禁用后回落，负面仍超 60%</li>
+              </ul>
+              <p class="study-take"><b>对本题的意义</b>排在最前的担忧不是口味，而是“里面放了什么、放了多久”——这恰是菜单上最不写的一句话。</p>
+              <a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2024.1424690/full" target="_blank" rel="noopener">查看论文、样本表与主题排序 ↗</a>
             </article>
             <article>
               <span class="study-kicker">微博 · 2018—2023</span>
               <strong>22.9<small>万条</small></strong>
               <h4>跨场景微博研究</h4>
-              <p>研究分析 229,375 条微博帖文，发现家庭场景讨论总体更积极，餐饮服务场景更谨慎，关注真实性、透明度与价格。</p>
-              <em>这项研究没有大众点评评价，不能直接与本项目比较。</em>
-              <a href="https://www.sciencedirect.com/science/article/pii/S1878450X26000107" target="_blank" rel="noopener">查看论文摘要与方法 ↗</a>
+              <p class="study-q"><b>研究问题</b>在家庭、下馆子、外卖、校园四个场景里，公众的态度和看重的价值有什么不同？</p>
+              <ul class="study-find">
+                <li>家庭场景整体<b>偏正面</b>；一到餐饮服务场景（餐馆、外卖、校园）评价转向<b>谨慎与负面</b>，女性略更负面</li>
+                <li>论文据此提出<b>“期望—实践落差”</b>：工业效率撞上消费者对<b>真实性、透明度、公平定价</b>的期待——透明度是落差的三个维度之一</li>
+                <li>“添加剂＋长保质期”带来的<b>不自然感</b>是各场景共同的接受障碍；日均发帖量从 2018 年的 22 条涨到 2023 年的 438 条</li>
+              </ul>
+              <p class="study-take"><b>对本题的意义</b>“不说清楚”本身就是落差：消费者拿现炒的预期，吃的是复热的工序，中间没有人补上那句说明。</p>
+              <a href="https://www.sciencedirect.com/science/article/pii/S1878450X26000107" target="_blank" rel="noopener">查看论文摘要与框架 ↗</a>
             </article>
           </div>
-          <p class="note">两项研究属于不同年份和样本框。此处作背景证据，不与本项目的 85 条抖音人工编码样本合并计算。</p>
+          <p class="note">两项研究的平台、年份与样本框各不相同，本页只引用其结论与数字，不与 85 条抖音编码样本合并计算；两篇均未提供分平台情感对比，这正是本项目要自己采样的部分。</p>
         </figure>
       </div>
 
@@ -1208,30 +1268,25 @@ footer{background:#122d25;border-top:0}
             <h4>85 条评论里，四种态度并存</h4>
             <p>点击色块查看该立场的典型表达。图为样本构成，不代表公众比例。</p>
           </figcaption>
-          <div class="dc-grid">
-            <div class="stance-wrap">
-              <div class="stance-left">
-                <div class="stance-col" id="stance-bar" role="img" aria-label="85条评论的立场构成：质疑39条，条件接受17条，支持16条，反对或愤怒13条"></div>
-                <div class="legend" id="stance-legend">
-                  <span><i style="background:#D8753A"></i>质疑 45.9%</span>
-                  <span><i style="background:#8FA97C"></i>条件接受 20.0%</span>
-                  <span><i style="background:#2E5A45"></i>支持 18.8%</span>
-                  <span><i style="background:#9E3B2E"></i>反对／愤怒 15.3%</span>
-                </div>
-              </div>
-              <div class="tag-detail stance-detail" id="stance-detail" aria-live="polite">点击左侧色块，查看这种立场的典型评论。</div>
-            </div>
-            <div class="aware">
-              <b>你在什么时候知道的？</b>
-              <p class="aware-lead">85 个点 = 85 条评论。大多数评论没有说明自己是“点餐前就知道”还是“吃完才发现”——而这个空白，恰恰是知情权问题最真实的写照。</p>
-              <div class="dots85" id="aware-dots" role="img" aria-label="85条评论的知情时点分布"></div>
-              <div class="legend" id="aware-legend">
-                <span><i style="background:#D8CDB8"></i>未说明 78</span>
-                <span><i style="background:#D8753A"></i>餐后自称发现 3</span>
-                <span><i style="background:#E2AE55"></i>推测 2</span>
-                <span><i style="background:#2E5A45"></i>事前已知 2</span>
+          <div class="stance-wrap">
+            <div class="stance-left">
+              <div class="stance-col" id="stance-bar" role="img" aria-label="85条评论的立场构成：质疑39条，条件接受17条，支持16条，反对或愤怒13条"></div>
+              <div class="legend stance-legend" id="stance-legend">
+                <button data-n="质疑" aria-pressed="true"><i style="background:#D8753A"></i>质疑 45.9%</button>
+                <button data-n="条件接受" aria-pressed="false"><i style="background:#8FA97C"></i>条件接受 20.0%</button>
+                <button data-n="支持" aria-pressed="false"><i style="background:#2E5A45"></i>支持 18.8%</button>
+                <button data-n="反对／愤怒" aria-pressed="false"><i style="background:#9E3B2E"></i>反对／愤怒 15.3%</button>
               </div>
             </div>
+            <div class="tag-detail stance-detail" id="stance-detail" aria-live="polite"></div>
+          </div>
+          <div class="aware-strip">
+            <div class="aware-hero">
+              <b>91.8<small>%</small></b>
+              <span>的评论没有说清“自己是什么时候知道的”</span>
+            </div>
+            <div class="aware-rows" id="aware-rows"></div>
+            <p class="aware-note">85 条里只有 2 条明确说“点餐前就知道”。我们知道这 85 个人怎么看，却几乎不知道他们<b>在点餐前</b>是否知道——不是这个问题不重要，而是没有人记录过它。</p>
           </div>
           <p class="note">样本来自 22 个公开页面、15 个公开原帖，经关键词与相关性筛选，西贝相关评论占 39 条，明显过度集中。<a href="舆论数据_第二阶段/公众评论_人工编码样本.json">查看逐条编码 ↗</a></p>
         </figure>
@@ -1939,34 +1994,59 @@ footer{background:#122d25;border-top:0}
 
   /* ---------- stance bar + detail ---------- */
   const stance = [
-    { n: '质疑', v: 39, c: '#D8753A', d: '多与价格和“半成品”定义有关：讽刺后厨大量使用微波炉（西贝）、质疑一只馒头卖到二十多元的定价（西贝）。' },
-    { n: '条件接受', v: 17, c: '#8FA97C', d: '不是反对预制，而是要求“说清楚、跟价格相称”：自称吃过认可口味、认为工业化餐饮可以接受（西贝）；认为预制可以用但需标注清楚（原帖 P05）。' },
-    { n: '支持', v: 16, c: '#2E5A45', d: '多与信任和便利相关：表示孕期最敢点这家外卖（老乡鸡）；自称实习时常吃、认为卫生可靠（老乡鸡）。' },
-    { n: '反对／愤怒', v: 13, c: '#9E3B2E', d: '情绪最强的一组：强烈支持质疑、表达对餐饮安全的愤怒（西贝）；反对儿童在校吃预制菜（校园）。' }
+    { n: '质疑', v: 39, c: '#D8753A',
+      d: '多与价格和“半成品”定义有关：讽刺后厨大量使用微波炉、质疑一只馒头卖到二十多元的定价。',
+      read: '质疑的落点往往不是“用了预制”，而是“这个价格配不上这道工序”。',
+      ex: [{ t: '质疑一只馒头卖到二十多元的定价。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' },
+           { t: '自称有饭店工作经验，认为餐厅普遍使用预制环节。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' }] },
+    { n: '条件接受', v: 17, c: '#8FA97C',
+      d: '不是反对预制，而是要求“说清楚、跟价格相称”：自称吃过认可口味、认为工业化餐饮可以接受；认为预制可以用但需标注清楚。',
+      read: '他们给出的不是拒绝，而是条件——这些条件里出现最多的词是“标注清楚”。',
+      ex: [{ t: '认为消费者发起质疑本身值得肯定。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' },
+           { t: '认为若价格低些，预制菜可以接受。', u: 'https://www.douyin.com/video/7689693009584260450', b: '西贝' }] },
+    { n: '支持', v: 16, c: '#2E5A45',
+      d: '多与信任和便利相关：表示孕期最敢点这家外卖、自称实习时常吃并认为卫生可靠。',
+      read: '支持通常来自具体体验：吃过、觉得卫生、图方便——而不是对“预制”这件事本身的辩护。',
+      ex: [{ t: '表示支持西贝一方，但理由是调侃式站队。', u: 'https://www.douyin.com/video/7549038124664409344', b: '西贝' },
+           { t: '自称吃过西贝，认可口味，同时认为工业餐饮可被接受。', u: 'https://www.douyin.com/video/7691173044508740907', b: '西贝' }] },
+    { n: '反对／愤怒', v: 13, c: '#9E3B2E',
+      d: '情绪最强的一组：强烈支持质疑、表达对餐饮安全的愤怒；反对儿童在校吃预制菜。',
+      read: '愤怒指向的常常不是“菜是预制的”，而是“我居然一直不知道”。',
+      ex: [{ t: '强烈支持质疑西贝，表达对餐饮安全的愤怒。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' },
+           { t: '把相关菜品比作隔夜菜。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' }] }
   ];
   const total = stance.reduce((a, b) => a + b.v, 0);
   $('#stance-bar').innerHTML = stance.map(s =>
     '<i data-n="' + s.n + '" style="--h:' + (s.v / total * 100).toFixed(1) + '%;background:' + s.c + '" title="' + s.n + ' ' + s.v + ' 条" tabindex="0"><span>' + s.v + '</span></i>'
   ).join('');
   const sdBox = $('#stance-detail');
+  const sLegs = $$('#stance-legend button');
   function showStance(n) {
     const s = stance.find(x => x.n === n);
-    sdBox.innerHTML = '<strong>' + s.n + ' · 本批 ' + s.v + ' 条（' + (s.v / total * 100).toFixed(1) + '%）</strong><p>' + s.d + '</p>';
+    sdBox.innerHTML =
+      '<strong>' + s.n + ' · 本批 ' + s.v + ' 条（' + (s.v / total * 100).toFixed(1) + '%）</strong>' +
+      '<p class="stance-read">' + s.read + '</p>' +
+      '<p>' + s.d + '</p>' +
+      '<div class="stance-ex"><b>典型表达</b>' + s.ex.map(e =>
+        '<p>· ' + e.t + '（' + e.b + '）<a href="' + e.u + '" target="_blank" rel="noopener">原帖 ↗</a></p>').join('') + '</div>';
+    sLegs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.n === n)));
   }
   $$('#stance-bar i').forEach(i => i.addEventListener('click', () => showStance(i.dataset.n)));
+  sLegs.forEach(b => b.addEventListener('click', () => showStance(b.dataset.n)));
   showStance('质疑');
 
-  /* ---------- awareness 85 dots ---------- */
+  /* ---------- awareness ---------- */
   const aware = [
-    { n: '未说明', v: 78, c: '#D8CDB8' },
-    { n: '餐后自称发现', v: 3, c: '#D8753A' },
-    { n: '推测', v: 2, c: '#E2AE55' },
-    { n: '事前已知', v: 2, c: '#2E5A45' }
+    { n: '餐后才发现', v: 3, c: '#D8753A' },
+    { n: '只能推测', v: 2, c: '#E2AE55' },
+    { n: '事前就知道', v: 2, c: '#2E5A45' }
   ];
-  const awareBox = $('#aware-dots');
-  let ah = '';
-  aware.forEach(g => { for (let i = 0; i < g.v; i++) ah += '<i style="background:' + g.c + '" title="' + g.n + '"></i>'; });
-  awareBox.innerHTML = ah;
+  $('#aware-rows').innerHTML = aware.map(g =>
+    '<div class="aware-row"><span class="aware-n">' + g.n + '</span>' +
+    '<span class="aware-dots">' + ('<i style="background:' + g.c + '"></i>').repeat(g.v) + '</span>' +
+    '<b>' + g.v + '</b><em>条</em></div>'
+  ).join('') +
+    '<div class="aware-row is-blank"><span class="aware-n">未说明</span><span class="aware-bar"><i></i></span><b>78</b><em>条</em></div>';
 
   /* ---------- tag dot matrix ---------- */
   const tags = [
@@ -1983,33 +2063,43 @@ footer{background:#122d25;border-top:0}
     { tag: '安全', n: 3, c: '#9E3B2E', note: '评论是否讨论食品安全，包括防腐剂等担忧。', ex: [{ t: '担心防腐剂，认为食品安全是核心。', u: 'https://www.douyin.com/video/7276950700150623547', b: '校园' }, { t: '强烈支持质疑，表达对餐饮安全的愤怒。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' }] },
     { tag: '速度', n: 3, c: '#C67B35', note: '评论是否以出餐速度推测加工方式。', ex: [{ t: '根据视频中的出餐速度怀疑菜品加工方式。', u: 'https://www.douyin.com/video/7549165627732512060', b: '西贝' }, { t: '把快速出餐与品牌的上菜承诺联系起来。', u: 'https://www.douyin.com/video/7549165627732512060', b: '西贝' }] },
     { tag: '校园', n: 3, c: '#7C6B45', note: '评论是否指向学生供餐与家长选择。', ex: [{ t: '反对儿童在校吃预制菜，强调成长阶段与学校做饭条件。', u: 'https://www.douyin.com/video/7276950700150623547', b: '校园' }, { t: '自称学校餐食分量不及自己购买的食品。', u: 'https://www.douyin.com/video/7462766465863650619', b: '校园' }] },
-    { tag: '行业常态', n: 2, c: '#8A7A55', note: '评论是否把预制环节视为行业普遍做法。', ex: [{ t: '认为餐厅普遍使用预制环节。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' }, { t: '认为一些连锁卤菜店当面拆包装，至少加工方式可见。', u: 'https://www.douyin.com/video/7276950700150623547', b: '校园' }] }
+    { tag: '行业常态', n: 2, c: '#8A7A55', note: '评论是否把预制环节视为行业普遍做法。', ex: [{ t: '认为餐厅普遍使用预制环节。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' }, { t: '认为一些连锁卤菜店当面拆包装，至少加工方式可见。', u: 'https://www.douyin.com/video/7276950700150623547', b: '校园' }] },
+    { tag: '监督', n: 2, c: '#4C7A61', note: '评论是否把公开质疑看作公共监督，而不只是挑刺。', ex: [{ t: '认为消费者发起质疑本身值得肯定。', u: 'https://www.douyin.com/video/7549039670450081033', b: '西贝' }, { t: '认为对预制菜问题的公开质疑有公共价值。', u: 'https://www.douyin.com/video/7549221638517034286', b: '老乡鸡' }] },
+    { tag: '全面反对', n: 2, c: '#9E3B2E', note: '评论是否主张预制菜不该出现在市场或餐桌上。', ex: [{ t: '表示希望预制菜从市场消失。', u: 'https://www.douyin.com/video/7689693009584260450', b: '西贝' }, { t: '表示在餐馆吃预制菜令人反感。', u: 'https://www.douyin.com/video/7276950700150623547', b: '校园' }] },
+    { tag: '分量', n: 2, c: '#D95F2B', note: '评论是否把分量与价格放在一起衡量。', ex: [{ t: '认为老乡鸡一道毛豆烧鸡价格偏高且肉少。', u: 'https://www.douyin.com/video/7549221638517034286', b: '老乡鸡' }, { t: '自称学校餐食分量不及自己购买的食品。', u: 'https://www.douyin.com/video/7462766465863650619', b: '校园' }] },
+    { tag: '标准化', n: 1, c: '#B0813C', note: '评论是否用“标准化”为工业化餐饮辩护。', ex: [{ t: '自称吃过西贝，认可口味，同时认为工业餐饮可被接受。', u: 'https://www.douyin.com/video/7691173044508740907', b: '西贝' }] },
+    { tag: '服务', n: 1, c: '#A9793F', note: '评论是否谈到排队、上菜等就餐服务体验。', ex: [{ t: '自称吃过一次，认为口味差且排队体验不佳。', u: 'https://www.douyin.com/video/7493456716479089955', b: '绿茶餐厅' }] }
   ];
   const maxTag = Math.max(...tags.map(t => t.n));
   const cloud = $('#tag-cloud');
   /* 盘子 + 热气布局：高频词是盘中主菜，低频词像热气升起（坐标为人工排布，避免重叠） */
   const dishPos = {
-    '信任':   [52, 63, 42, 1],
-    '工序':   [34, 70, 33, 1],
-    '价格':   [66, 70, 31, 1],
-    '口味':   [79, 62, 27, .95],
-    '透明':   [45, 79, 26, 1],
-    '定义':   [60, 80, 24, .95],
-    '知情权': [74, 78, 19, .9],
-    '便利':   [26, 77, 16, .9],
-    '新鲜度': [30, 52, 15, .8],
-    '卫生':   [64, 50, 14, .8],
-    '安全':   [50, 38, 16, .68],
-    '速度':   [38, 30, 13, .58],
-    '校园':   [61, 22, 14, .48],
-    '行业常态': [46, 12, 13, .4]
+    '信任':   [50, 67, 42, 1],
+    '工序':   [32, 61, 33, 1],
+    '价格':   [68, 62, 31, 1],
+    '口味':   [82, 71, 25, .95],
+    '透明':   [41, 78, 24, 1],
+    '定义':   [60, 78, 23, .95],
+    '知情权': [73, 76, 18, .9],
+    '便利':   [25, 74, 16, .9],
+    '新鲜度': [36, 52, 15, .8],
+    '卫生':   [57, 50, 14, .8],
+    '安全':   [47, 41, 16, .7],
+    '速度':   [64, 40, 13, .62],
+    '标准化': [74, 48, 12, .42],
+    '校园':   [38, 33, 14, .52],
+    '行业常态': [56, 30, 13, .45],
+    '监督':   [30, 26, 12, .4],
+    '全面反对': [46, 21, 12, .34],
+    '分量':   [64, 24, 12, .34],
+    '服务':   [22, 43, 12, .38]
   };
   cloud.innerHTML =
-    '<div class="cloud-steam" aria-hidden="true">'
-    + '<path d="M430 396 C 420 340 450 320 438 270 C 428 232 452 216 444 176" fill="none" stroke="#C9B99B" stroke-width="2.5" stroke-dasharray="1 9" stroke-linecap="round"/>'
-    + '<path d="M500 396 C 512 336 486 314 500 262 C 510 224 490 206 500 166 C 506 140 496 120 502 96" fill="none" stroke="#C9B99B" stroke-width="2.5" stroke-dasharray="1 9" stroke-linecap="round"/>'
-    + '<path d="M574 396 C 580 348 560 322 572 276 C 580 240 566 220 574 186" fill="none" stroke="#C9B99B" stroke-width="2.5" stroke-dasharray="1 9" stroke-linecap="round"/>'
-    + '</div>'
+    '<svg class="cloud-steam" viewBox="0 0 640 420" preserveAspectRatio="none" aria-hidden="true">'
+    + '<path d="M300 358 C 292 306 316 286 306 242 C 298 210 318 190 310 154" fill="none" stroke="#C9B99B" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>'
+    + '<path d="M420 358 C 430 300 406 278 418 236 C 426 206 410 186 418 146" fill="none" stroke="#C9B99B" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>'
+    + '<path d="M540 358 C 546 306 528 280 540 244 C 548 216 534 196 542 166" fill="none" stroke="#C9B99B" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round"/>'
+    + '</svg>'
     + tags.map(t => {
         const p = dishPos[t.tag] || [50, 50, 15, .8];
         const size = p[2];
@@ -2137,13 +2227,17 @@ footer{background:#122d25;border-top:0}
 
   /* ---------- DT 条件竖向柱状 ---------- */
   const dts = [
-    ['安全健康', 64.6, '#2E5A45'],
-    ['公开标注是预制菜', 63.4, '#4C7A61'],
-    ['价格更低', 37.2, '#E2973C'],
-    ['不接受预制食品出现在这些场合', 8.6, '#9E3B2E']
+    ['安全健康', 64.6, '#2E5A45', '最在意的仍是“吃着放心”'],
+    ['公开标注是预制菜', 63.4, '#4C7A61', '第二在意的是“你得告诉我”'],
+    ['价格更低', 37.2, '#E2973C', '“便宜”排在知情之后，差约 26 个百分点'],
+    ['不接受出现在这些场合', 8.6, '#9E3B2E', '反向选项：任何条件都不接受']
   ];
-  $('#dt-bars').innerHTML = dts.map(([n, pct, c]) =>
-    '<div class="vbar"><div class="vb-col"><i style="--h:' + pct + '%;background:' + c + '"></i></div><em data-count="' + pct + '" data-dec="1" data-suf="%">0%</em><b>' + n + '</b></div>'
+  $('#dt-bars').innerHTML = dts.map(([n, pct, c, g], i) =>
+    '<div class="vbar' + (i === 3 ? ' is-neg' : '') + '">' +
+    '<span class="vb-rank">' + (i === 3 ? '反向选项' : '条件 0' + (i + 1)) + '</span>' +
+    '<div class="vb-col"><i style="--h:' + pct + '%;background:' + c + '"></i></div>' +
+    '<em data-count="' + pct + '" data-dec="1" data-suf="%">0%</em>' +
+    '<b>' + n + '</b><span class="vb-gloss">' + g + '</span></div>'
   ).join('');
   $$('#dt-bars [data-count]').forEach(el => { if (cuIO) cuIO.observe(el); else { countUp(el); } });
 
@@ -2489,6 +2583,19 @@ footer{background:#122d25;border-top:0}
     secondOut.textContent = replies[b.dataset.second];
     last.hidden = false;
   }));
+
+  /* ---------- 图表卡片进入视口：撑开柱状（.in） ---------- */
+  const dcards = $$('.data-card');
+  if ('IntersectionObserver' in window) {
+    const cardIO = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      cardIO.unobserve(en.target);
+    }), { threshold: .08 });
+    dcards.forEach(c => cardIO.observe(c));
+  } else {
+    dcards.forEach(c => c.classList.add('in'));
+  }
 })();
 
 </script>
